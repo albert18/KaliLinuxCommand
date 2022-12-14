@@ -24,7 +24,7 @@ def scan_port(ipaddress, port):
         sock.connect((ipaddress, port))
         try:
             banner = get_banner(sock)
-            print('[+] Open Port ' + str(port) + ' : ' + str(banner))
+            print('[+] Open Port ' + str(port) + ' : ' + str(banner.decode().strip('\n')))
         except:
             print('[+] Open Port ' + str(port))
     except:
