@@ -2,6 +2,8 @@ import socket
 from IPy import IP
 
 class PortScan():
+    banners = []
+    open_ports = []
     
     def __init__(self, target, port_number):
         self.target = target
@@ -24,11 +26,13 @@ class PortScan():
             sock = socket.socket()
             sock.settimeout(0.5)
             sock.connect((converted_ip, port))
+            self.open_ports.append(port)
             try:
                 banner = sock.recv(1024).decode().strip('\n').strip('\r')
-                print('[+] Open Port ' + str(port) + ' : ' + str(banner.decode().strip('\n')))
+                self.banners.append(banner)
             except:
-                print('[+] Open Port ' + str(port))
+                self.banners.append(' ')
+            sock.close()
         except:
             pass
 
