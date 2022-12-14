@@ -30,11 +30,12 @@ def scan_port(ipaddress, port):
     except:
         pass
 
-targets = input('[+] Enter Target(s) To Scan:(split multiple targets with ,): ')
-if ',' in targets:
-    for ip_add in targets.split(','):
-        scan(ip_add.strip(' '))
-else:
-    scan(targets)
+if __name__ == "__main__":
+    targets = input('[+] Enter Target(s) To Scan:(split multiple targets with ,): ')
+    if ',' in targets:
+        for ip_add in targets.split(','):
+            scan(ip_add.strip(' '))
+    else:
+        scan(targets)
 
 
