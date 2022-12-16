@@ -1,3 +1,10 @@
 ARP use scapy
 
 >pip3 install scapy
+
+
+You can run the word 'scapy' in the bash
+>scapy
+>ls
+>packet = ARP(pdst='192.168.1.100')
+>packet.show()
