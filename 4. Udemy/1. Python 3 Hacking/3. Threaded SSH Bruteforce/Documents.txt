@@ -1,0 +1,4 @@
+-For colors of the command line so it will be easier to dertermine.
+
+>pip3 install termcolor
+
