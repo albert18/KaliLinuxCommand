@@ -5,4 +5,4 @@ port_number = int(input('[+] * Enter Amount Of Ports You Want To Scan(500 - firs
 vuln_file = input('[+] * Enter Path To The File With Vulnerable Softwares: ')
 print('\n')
 
-# target = port
+target = portscanner.PortScan()
