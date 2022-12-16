@@ -8,3 +8,14 @@ You can run the word 'scapy' in the bash
 >ls
 >packet = ARP(pdst='192.168.1.100')
 >packet.show()
+
+>ls(Ether)
+>packet= Ether(dst='ff:ff:ff:ff:ff:ff')
+>show.packet
+
+>arp_layer = RP(pdst='192.169.1.100')
+>arp_layer.show()
+
+>entire_packet = broadcast/arp_layer
+>entire_packet.show()
+>answer = srp(entire_packet, timeout=2, verbose=true)[0]
