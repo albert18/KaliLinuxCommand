@@ -22,6 +22,8 @@ def shell():
             break
         elif command == 'help':
             pass
+        elif command == 'clear':
+            pass
         else:
             execute = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             result = execute.stdout.read() + execute.stderr.read()
