@@ -147,6 +147,15 @@ airplay-ng --fakeauth 0 {MACADDRESS} -h {AdapterMACADDRESS}
 aireplay-ng -0 0 -a 30:89:D3:2A:97:9E wlan0mon
 
 
+===========================Attacking in the same network
+-You can use the IP range
+netdiscover -r 192.168.1.75/24
+
+
+===========================Section 10 using nmap
+-To run Zenmap
+sudo kaboxer run zenmap
+
 
 
 
