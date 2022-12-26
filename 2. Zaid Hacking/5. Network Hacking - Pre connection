@@ -2,3 +2,12 @@
 airodump-ng wlan0
 
 -Looking for 5g
+airodump-ng --band a wlan0
+
+-Both 2.4 and 5g sniffing
+airodump-ng --band abg wlan0
+
+-To gather specific wireless
+airodump-ng --bssid 08:36:C9:62:C8:75 --channel 2
+
+

