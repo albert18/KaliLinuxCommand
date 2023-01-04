@@ -15,4 +15,4 @@ Extension and plugin for Mozilla browser - HTTPS everywhere Extension
 
 -Preventing MITM attachs - Method 2
 
-
+Or you can use VPN
