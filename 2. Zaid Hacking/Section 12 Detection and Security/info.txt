@@ -6,5 +6,12 @@ XArp
 
 -Detecting suspicious network in the network, you can use wireshark.
 
+-Preventing MITM attachs - Method 1
+
+
+
+
+
+-Preventing MITM attachs - Method 2
 
 
