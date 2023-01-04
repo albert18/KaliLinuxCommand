@@ -8,6 +8,7 @@ XArp
 
 -Preventing MITM attachs - Method 1
 
+Extension and plugin for Mozilla browser - HTTPS everywhere Extension
 
 
 
